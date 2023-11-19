@@ -1,6 +1,6 @@
 {% set base_name = "blosc2" %}
 {% set name = "python-blosc2" %}
-{% set version = "2.2.9" %}
+{% set version = "2.3.1" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ base_name[0] }}/{{ base_name }}/{{ base_name }}-{{ version }}.tar.gz
-  sha256: 63606498aaa72d58215b618d4512d5d3de29000a7b01a870edce8cb21d237c40
+  sha256: d76b839ecfe2044f6ba43db9db95d223b37deb9225b5f337718caace62e70002
   patches:
     # Delete after https://github.com/Blosc/python-blosc2/pull/148 is merged
     - 0001-Add-imported-target-with-pkg-config-to-support-windo.patch
