@@ -14,7 +14,7 @@ source:
     - 0001-Add-imported-target-with-pkg-config-to-support-windo.patch
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py<38]
 
 requirements:
