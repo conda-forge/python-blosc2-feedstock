@@ -7,9 +7,6 @@ package:
 source:
   url: https://pypi.io/packages/source/b/blosc2/blosc2-{{ version }}.tar.gz
   sha256: eee6e321ace1f41db3d3290f92d97d86c235f2c43a873e83f9ad0281b7f1c007
-  patches:
-    # Delete after https://github.com/Blosc/python-blosc2/pull/148 is merged
-    - 0001-Add-imported-target-with-pkg-config-to-support-windo.patch
 
 build:
   number: 1
