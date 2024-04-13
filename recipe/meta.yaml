@@ -17,28 +17,29 @@ requirements:
     - {{ compiler("c") }}
     - {{ stdlib("c") }}
     - {{ compiler("cxx") }}
-    - c-blosc2
     - cmake
+    - python                              # [build_platform != target_platform]
     - cross-python_{{ target_platform }}  # [build_platform != target_platform]
+    - cython                              # [build_platform != target_platform]
+    - numpy                               # [build_platform != target_platform]
     - make                                # [unix]
     - ninja
     - pkg-config
-    - python                              # [build_platform != target_platform]
   host:
     - c-blosc2
-    - cython >=3
-    - numpy >=1.20.3
+    - cython
+    - numpy
     - pathlib
     - python
     - python-build
     - scikit-build
     - setuptools
   run:
+    - python
     - msgpack-python
     - ndindex >=1.4
-    - {{ pin_compatible('numpy') }}
     - py-cpuinfo
-    - python
+    - numexpr
 
 test:
   imports:
