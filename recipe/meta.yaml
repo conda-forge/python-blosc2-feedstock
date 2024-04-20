@@ -1,48 +1,45 @@
-{% set base_name = "blosc2" %}
-{% set name = "python-blosc2" %}
-{% set version = "2.3.2" %}
+{% set version = "2.6.1" %}
 
 package:
-  name: {{ name|lower }}
+  name: python-blosc2
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ base_name[0] }}/{{ base_name }}/{{ base_name }}-{{ version }}.tar.gz
-  sha256: daf75a3ba973578732cb31848f1404fb5b465bdd821d437b6ff4b605e7f1e0c0
-  patches:
-    # Delete after https://github.com/Blosc/python-blosc2/pull/148 is merged
-    - 0001-Add-imported-target-with-pkg-config-to-support-windo.patch
+  url: https://pypi.io/packages/source/b/blosc2/blosc2-{{ version }}.tar.gz
+  sha256: eee6e321ace1f41db3d3290f92d97d86c235f2c43a873e83f9ad0281b7f1c007
 
 build:
   number: 0
-  skip: true  # [py<38]
+  skip: true  # [py<310]
 
 requirements:
   build:
     - {{ compiler("c") }}
+    - {{ stdlib("c") }}
     - {{ compiler("cxx") }}
-    - c-blosc2
     - cmake
+    - python                              # [build_platform != target_platform]
     - cross-python_{{ target_platform }}  # [build_platform != target_platform]
+    - cython                              # [build_platform != target_platform]
+    - numpy                               # [build_platform != target_platform]
     - make                                # [unix]
     - ninja
     - pkg-config
-    - python                              # [build_platform != target_platform]
   host:
     - c-blosc2
-    - cython >=3
-    - numpy >=1.20.3
+    - cython
+    - numpy
     - pathlib
     - python
     - python-build
     - scikit-build
     - setuptools
   run:
+    - python
     - msgpack-python
     - ndindex >=1.4
-    - {{ pin_compatible('numpy') }}
     - py-cpuinfo
-    - python
+    - numexpr
 
 test:
   imports:
