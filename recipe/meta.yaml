@@ -1,4 +1,4 @@
-{% set version = "2.6.1" %}
+{% set version = "2.7.0" %}
 
 package:
   name: python-blosc2
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/b/blosc2/blosc2-{{ version }}.tar.gz
-  sha256: eee6e321ace1f41db3d3290f92d97d86c235f2c43a873e83f9ad0281b7f1c007
+  sha256: 9b982c1d40560eefb4a01d67c57e786d39a5ee9696f3deadd32ebf5f8885eb2a
 
 build:
   number: 0

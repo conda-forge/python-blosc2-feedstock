@@ -1,11 +1,9 @@
 c_blosc2:
-- 2.14.4
+- '2.14'
 c_compiler:
 - vs2019
 c_stdlib:
 - vs
-c_stdlib_version:
-- '2019'
 channel_sources:
 - conda-forge
 channel_targets:

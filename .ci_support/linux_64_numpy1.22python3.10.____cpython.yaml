@@ -1,5 +1,5 @@
 c_blosc2:
-- 2.14.4
+- '2.14'
 c_compiler:
 - gcc
 c_compiler_version:
