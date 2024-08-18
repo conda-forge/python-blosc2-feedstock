@@ -1,4 +1,4 @@
-{% set version = "2.7.0" %}
+{% set version = "2.7.1" %}
 
 package:
   name: python-blosc2
@@ -6,17 +6,17 @@ package:
 
 source:
   url: https://pypi.io/packages/source/b/blosc2/blosc2-{{ version }}.tar.gz
-  sha256: 9b982c1d40560eefb4a01d67c57e786d39a5ee9696f3deadd32ebf5f8885eb2a
+  sha256: 34db4d41543b16e894d507d6c7d10a9a67c9dd420ff40b072f7c39185cbb8fe8
 
 build:
-  number: 1
+  number: 0
   skip: true  # [py<310]
 
 requirements:
   build:
-    - {{ compiler("c") }}
-    - {{ stdlib("c") }}
-    - {{ compiler("cxx") }}
+    - {{ compiler('c') }}
+    - {{ stdlib('c') }}
+    - {{ compiler('cxx') }}
     - cmake
     - python                              # [build_platform != target_platform]
     - cross-python_{{ target_platform }}  # [build_platform != target_platform]
