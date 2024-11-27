@@ -29,7 +29,6 @@ requirements:
     - c-blosc2
     - cython
     - numpy
-    - pathlib
     - python
     - python-build
     - scikit-build
