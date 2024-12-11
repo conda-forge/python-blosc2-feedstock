@@ -1,16 +1,16 @@
-{% set version = "2.7.1" %}
+{% set version = "3.0.0rc3" %}
 
 package:
   name: python-blosc2
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/b/blosc2/blosc2-{{ version }}.tar.gz
-  sha256: 34db4d41543b16e894d507d6c7d10a9a67c9dd420ff40b072f7c39185cbb8fe8
+  url: https://github.com/Blosc/python-blosc2/archive/refs/tags/v{{ version }}.tar.gz
+  sha256: 9186daeb69bdffefc222063e3cb7c01185b6f794b5fa42f4d190761a556fdd62
 
 build:
   number: 1
-  skip: true  # [py<310]
+  skip: true  # [py<311]
 
 requirements:
   build:
@@ -21,17 +21,17 @@ requirements:
     - python                              # [build_platform != target_platform]
     - cross-python_{{ target_platform }}  # [build_platform != target_platform]
     - cython                              # [build_platform != target_platform]
-    - numpy                               # [build_platform != target_platform]
+    - numpy >=2.0.0                       # [build_platform != target_platform]
     - make                                # [unix]
     - ninja
     - pkg-config
   host:
     - c-blosc2
     - cython
-    - numpy
+    - numpy >=2.0.0
     - python
     - python-build
-    - scikit-build
+    - scikit-build-core
     - setuptools
   run:
     - python
@@ -39,7 +39,8 @@ requirements:
     - ndindex >=1.4
     - py-cpuinfo
     - numexpr
-    - numpy >=1.20.3
+    - numpy >=1.25.0
+    - httpx
 
 test:
   imports:
@@ -47,15 +48,22 @@ test:
   commands:
     - pip list
     - pip check
+    - python -c "import blosc2; print(blosc2.__version__)"
   requires:
     - pip
 
 about:
-  home: https://pypi.org/project/blosc2
-  summary: A Python wrapper for the extremely fast Blosc2 compression library
+  home: https://github.com/Blosc/python-blosc2
+  summary: A fast & compressed ndarray library with a flexible computational engine.
+  description: |
+    Blosc2 is a high-performance compressor optimized for binary and n-dimensional data.
+    It adds a flexible computational engine, making it ideal for scientific computing
+    and other data-intensive applications.
   license: BSD-3-Clause
+  license_family: BSD
   license_file:
     - LICENSE.txt
+  doc_url: https://www.blosc.org/python-blosc2
   dev_url: https://github.com/Blosc/python-blosc2
 
 extra:
