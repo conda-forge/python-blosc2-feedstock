@@ -35,7 +35,6 @@ requirements:
     - python-build
     - pip
     - scikit-build-core
-    - setuptools
   run:
     - python
     - msgpack-python
@@ -51,7 +50,7 @@ test:
   commands:
     - pip list
     - pip check
-    - python -c "import blosc2; print(blosc2.__version__)"
+    - python -c "import blosc2; blosc2.print_versions()"
   requires:
     - pip
 
