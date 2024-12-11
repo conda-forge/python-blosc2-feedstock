@@ -33,6 +33,7 @@ requirements:
     - numpy >=2.0.0
     - python
     - python-build
+    - pip
     - scikit-build-core
     - setuptools
   run:
