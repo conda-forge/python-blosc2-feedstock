@@ -1,16 +1,19 @@
-{% set version = "2.7.1" %}
+{% set version = "3.0.0" %}
 
 package:
   name: python-blosc2
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/b/blosc2/blosc2-{{ version }}.tar.gz
-  sha256: 34db4d41543b16e894d507d6c7d10a9a67c9dd420ff40b072f7c39185cbb8fe8
+  url: https://github.com/Blosc/python-blosc2/archive/refs/tags/v{{ version }}.tar.gz
+  sha256: 58a033063cf4a155d42d00814a3f593df13d077a1d24e9061a51a3cac8bfa05d
 
 build:
-  number: 1
-  skip: true  # [py<310]
+  number: 0
+  skip: true  # [py<311]
+  script_env:
+    - USE_SYSTEM_BLOSC2=1
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
@@ -31,15 +34,16 @@ requirements:
     - numpy
     - python
     - python-build
-    - scikit-build
-    - setuptools
+    - pip
+    - scikit-build-core
   run:
     - python
     - msgpack-python
     - ndindex >=1.4
     - py-cpuinfo
     - numexpr
-    - numpy >=1.20.3
+    - numpy >=1.25.0
+    - httpx
 
 test:
   imports:
@@ -47,15 +51,22 @@ test:
   commands:
     - pip list
     - pip check
+    - python -c "import blosc2; blosc2.print_versions()"
   requires:
     - pip
 
 about:
-  home: https://pypi.org/project/blosc2
-  summary: A Python wrapper for the extremely fast Blosc2 compression library
+  home: https://github.com/Blosc/python-blosc2
+  summary: A fast & compressed ndarray library with a flexible computational engine.
+  description: |
+    Blosc2 is a high-performance compressor optimized for binary and n-dimensional data.
+    It adds a flexible computational engine, making it ideal for scientific computing
+    and other data-intensive applications.
   license: BSD-3-Clause
+  license_family: BSD
   license_file:
     - LICENSE.txt
+  doc_url: https://www.blosc.org/python-blosc2
   dev_url: https://github.com/Blosc/python-blosc2
 
 extra:
