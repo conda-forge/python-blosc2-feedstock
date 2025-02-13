@@ -292,5 +292,6 @@ Feedstock Maintainers
 
 * [@FrancescAlted](https://github.com/FrancescAlted/)
 * [@goanpeca](https://github.com/goanpeca/)
+* [@hmaarrfk](https://github.com/hmaarrfk/)
 * [@martaiborra](https://github.com/martaiborra/)
 
