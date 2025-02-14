@@ -44,6 +44,7 @@ requirements:
     - numexpr
     - numpy >=1.25.0
     - httpx
+    - platformdirs
 
 test:
   imports:
