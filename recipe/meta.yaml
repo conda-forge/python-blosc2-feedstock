@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/Blosc/python-blosc2/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 64afc09a70ea966642859c92d60fe225beef52682837c32ec19ed5e56306ca3b
+  sha256: 07e9efcfbbc653597c651a36b841272debdbf18307a88600579964deee2877fb
 
 build:
   number: 0
