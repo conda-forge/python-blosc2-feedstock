@@ -1,4 +1,4 @@
-{% set version = "3.0.0" %}
+{% set version = "3.1.0" %}
 
 package:
   name: python-blosc2
@@ -6,10 +6,10 @@ package:
 
 source:
   url: https://github.com/Blosc/python-blosc2/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 58a033063cf4a155d42d00814a3f593df13d077a1d24e9061a51a3cac8bfa05d
+  sha256: 07e9efcfbbc653597c651a36b841272debdbf18307a88600579964deee2877fb
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py<311]
   script_env:
     - USE_SYSTEM_BLOSC2=1
@@ -44,6 +44,7 @@ requirements:
     - numexpr
     - numpy >=1.25.0
     - httpx
+    - platformdirs
 
 test:
   imports:
@@ -71,6 +72,7 @@ about:
 
 extra:
   recipe-maintainers:
+    - hmaarrfk
     - FrancescAlted
     - goanpeca
     - martaiborra
