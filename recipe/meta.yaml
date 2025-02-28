@@ -39,11 +39,11 @@ requirements:
   run:
     - python
     - msgpack-python
-    - ndindex >=1.4
+    - ndindex
     - py-cpuinfo
     - numexpr
-    - numpy >=1.25.0
-    - httpx
+    - numpy >=1.26.0
+    - requests
     - platformdirs
 
 test:
