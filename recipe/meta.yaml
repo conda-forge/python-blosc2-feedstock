@@ -41,7 +41,7 @@ requirements:
     - msgpack-python
     - ndindex
     - py-cpuinfo
-    - numexpr >=2.12.1
+    - numexpr >=2.13.1
     - numpy >=1.26.0
     - requests
     - platformdirs
