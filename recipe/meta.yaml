@@ -1,4 +1,4 @@
-{% set version = "3.9.0" %}
+{% set version = "3.10.0" %}
 
 package:
   name: python-blosc2
@@ -6,10 +6,10 @@ package:
 
 source:
   url: https://github.com/Blosc/python-blosc2/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: bfc05fb560c945f222b58056836de04b304ad564ff3caddf906568900077fa07
+  sha256: 4e2ee0da11a4eb37ad91e35892fc1bd4190272e5c20d55a97950dbfef36373e5
 
 build:
-  number: 1
+  number: 0
   skip: true  # [py<311]
   script_env:
     - USE_SYSTEM_BLOSC2=1
