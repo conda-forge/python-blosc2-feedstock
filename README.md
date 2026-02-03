@@ -337,6 +337,3 @@ Feedstock Maintainers
 * [@hmaarrfk](https://github.com/hmaarrfk/)
 * [@martaiborra](https://github.com/martaiborra/)
 
-
-<!-- dummy commit to enable rerendering -->
-
