@@ -7,6 +7,8 @@ package:
 source:
   url: https://github.com/Blosc/python-blosc2/archive/refs/tags/v{{ version }}.tar.gz
   sha256: a13a06040427888413c190dd7d2a9c72d57e2eea9147c7584336496997d371a0
+  patches:
+    - patches/skip-copy-blosc2-shared-when-system.patch
 
 build:
   number: 0
