@@ -13,13 +13,19 @@ build:
   skip: true  # [py<311]
   script_env:
     - USE_SYSTEM_BLOSC2=1
-  script: {{ PYTHON }} -m pip install . -vv
+  script:
+    - {{ PYTHON }} -m pip install . -vv  # [not win]
+    - set CC=clang-cl  # [win]
+    - set CXX=clang-cl  # [win]
+    - set CMAKE_GENERATOR_TOOLSET=ClangCL  # [win]
+    - {{ PYTHON }} -m pip install . -vv  # [win]
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ stdlib('c') }}
     - {{ compiler('cxx') }}
+    - clangxx                   # [win]
     - cmake
     - python                              # [build_platform != target_platform]
     - cross-python_{{ target_platform }}  # [build_platform != target_platform]
