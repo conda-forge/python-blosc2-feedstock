@@ -1,4 +1,4 @@
-{% set version = "3.12.2" %}
+{% set version = "4.0.0" %}
 
 package:
   name: python-blosc2
@@ -6,20 +6,27 @@ package:
 
 source:
   url: https://github.com/Blosc/python-blosc2/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: e205bf384d7ffc3f663835a00a067598466ffe77451dfd9c0a8f7cf81f09166f
+  sha256: a13a06040427888413c190dd7d2a9c72d57e2eea9147c7584336496997d371a0
+  patches:
+    - patches/skip-copy-blosc2-shared-when-system.patch
 
 build:
-  number: 2
+  number: 0
   skip: true  # [py<311]
   script_env:
     - USE_SYSTEM_BLOSC2=1
-  script: {{ PYTHON }} -m pip install . -vv
+  script:
+    - set CC=clang-cl                      # [win]
+    - set CXX=clang-cl                     # [win]
+    - set CMAKE_GENERATOR_TOOLSET=ClangCL  # [win]
+    - {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ stdlib('c') }}
     - {{ compiler('cxx') }}
+    - clangxx                   # [win]
     - cmake
     - python                              # [build_platform != target_platform]
     - cross-python_{{ target_platform }}  # [build_platform != target_platform]
@@ -40,7 +47,6 @@ requirements:
     - python
     - msgpack-python
     - ndindex
-    - py-cpuinfo
     - numexpr >=2.12.1
     - numpy >=1.26.0
     - requests

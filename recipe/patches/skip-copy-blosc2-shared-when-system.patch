@@ -1,0 +1,27 @@
+From 8d2bcd4d0e5bd8c1b3f1b8a8a4a9f6f6a6b3a1b2 Mon Sep 17 00:00:00 2001
+From: Conda Forge Bot <conda-forge@invalid>
+Date: Thu, 5 Feb 2026 12:05:00 +0000
+Subject: [PATCH] Guard blosc2_shared copy on Windows when using system
+ blosc2
+
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -130,10 +130,12 @@ if(UNIX)
+   )
+ endif()
+ 
+-if(WIN32)
+-  add_custom_command(TARGET blosc2_ext POST_BUILD
+-    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+-            $<TARGET_FILE:blosc2_shared>
+-            $<TARGET_FILE_DIR:blosc2_ext>
+-  )
++if(WIN32)
++  if(TARGET blosc2_shared)
++    add_custom_command(TARGET blosc2_ext POST_BUILD
++      COMMAND ${CMAKE_COMMAND} -E copy_if_different
++              $<TARGET_FILE:blosc2_shared>
++              $<TARGET_FILE_DIR:blosc2_ext>
++    )
++  endif()
+ endif()
