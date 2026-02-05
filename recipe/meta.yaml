@@ -48,7 +48,6 @@ requirements:
     - python
     - msgpack-python
     - ndindex
-    - py-cpuinfo
     - numexpr >=2.12.1
     - numpy >=1.26.0
     - requests
