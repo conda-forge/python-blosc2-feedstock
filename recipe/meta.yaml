@@ -7,6 +7,8 @@ package:
 source:
   url: https://github.com/Blosc/python-blosc2/archive/refs/tags/v{{ version }}.tar.gz
   sha256: 83fb7ff02a9b16d3d8ccdfd401b151d32871cc18c304761dccc887fc9d4af3cd
+  patches:
+    - patches/cross-compile-minicc-macosx-arm64.patch
 
 build:
   number: 0
