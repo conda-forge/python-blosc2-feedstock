@@ -1,0 +1,13 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index d21e9a3f..1866e821 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -63,7 +63,7 @@ endif()
+
+ FetchContent_Declare(miniexpr
+     GIT_REPOSITORY https://github.com/Blosc/miniexpr.git
+-    GIT_TAG fef636f8f2dbefb351b34773a4249472559ca8a5  # v0.2.0
++    GIT_TAG 4bd7aa239a155948226af31dd79a172483e9211a
+     # SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../miniexpr
+ )
+ FetchContent_MakeAvailable(miniexpr)
