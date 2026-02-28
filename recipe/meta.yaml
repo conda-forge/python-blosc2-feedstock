@@ -1,4 +1,4 @@
-{% set version = "4.0.0" %}
+{% set version = "4.1.0" %}
 
 package:
   name: python-blosc2
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/Blosc/python-blosc2/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: a13a06040427888413c190dd7d2a9c72d57e2eea9147c7584336496997d371a0
+  sha256: 83fb7ff02a9b16d3d8ccdfd401b151d32871cc18c304761dccc887fc9d4af3cd
   patches:
     - patches/skip-copy-blosc2-shared-when-system.patch
 
