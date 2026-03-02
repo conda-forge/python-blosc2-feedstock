@@ -1,4 +1,4 @@
-{% set version = "4.1.0" %}
+{% set version = "4.1.1" %}
 
 package:
   name: python-blosc2
@@ -6,9 +6,7 @@ package:
 
 source:
   url: https://github.com/Blosc/python-blosc2/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 83fb7ff02a9b16d3d8ccdfd401b151d32871cc18c304761dccc887fc9d4af3cd
-  patches:
-    - patches/cross-compile-minicc-macosx-arm64.patch
+  sha256: df2cbe29b1762c6f668ae60b06af8bf234b046fad7bb4420ed69efa78a45839d
 
 build:
   number: 0
