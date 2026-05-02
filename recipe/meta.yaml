@@ -9,7 +9,7 @@ source:
   sha256: 0f1885ab3c082d6dd97a480a47ddf2f69e5c5b0464106982dbc1e173e2bce863
 
 build:
-  number: 1
+  number: 2
   skip: true  # [py<311]
   script_env:
     - USE_SYSTEM_BLOSC2=1
