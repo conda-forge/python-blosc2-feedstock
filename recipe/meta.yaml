@@ -49,6 +49,8 @@ requirements:
     - numpy >=1.26.0
     - requests
     - platformdirs
+    - threadpoolctl
+    - pydantic >=2
 
 test:
   imports:
