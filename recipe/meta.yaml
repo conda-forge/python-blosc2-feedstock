@@ -50,6 +50,8 @@ requirements:
     - pydantic
     - requests
     - threadpoolctl
+    - textual
+    - rich
 
 test:
   imports:
