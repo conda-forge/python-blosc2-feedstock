@@ -51,6 +51,7 @@ requirements:
     - requests
     - threadpoolctl
     - textual
+    - textual-plotext
     - rich
 
 test:
