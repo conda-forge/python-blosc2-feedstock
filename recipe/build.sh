@@ -13,7 +13,7 @@ if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" == "1" ]]; then
     Python_INCLUDE_DIR="$(python -c 'import sysconfig; print(sysconfig.get_path("include"))')"
     Python_NumPy_INCLUDE_DIR="$(python -c 'import numpy; print(numpy.get_include())')"
     export CMAKE_ARGS="${CMAKE_ARGS} -DPython_EXECUTABLE=${PYTHON} -DPython_INCLUDE_DIR=${Python_INCLUDE_DIR} -DPython_NumPy_INCLUDE_DIR=${Python_NumPy_INCLUDE_DIR}"
-    export CMAKE_ARGS="${CMAKE_ARGS} -DPython3_EXECUTABLE=${PYTHON} -DPython3_INCLUDE_DIR=${Python_INCLUDE_DIR} -DPython3_NumPy_INCLUDE_DIR=${Python_NumPy_INCLUDE_DIR}"
+    # export CMAKE_ARGS="${CMAKE_ARGS} -DPython3_EXECUTABLE=${PYTHON} -DPython3_INCLUDE_DIR=${Python_INCLUDE_DIR} -DPython3_NumPy_INCLUDE_DIR=${Python_NumPy_INCLUDE_DIR}"
 
     if [[ "$(python -c 'import sysconfig; print(sysconfig.get_config_var("Py_GIL_DISABLED") or 0)')" == "1" ]]; then
         # Free-threaded (cp3xxt) cross builds additionally fail because, under
