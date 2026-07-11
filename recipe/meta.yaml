@@ -13,18 +13,6 @@ build:
   skip: true  # [py<311]
   script_env:
     - USE_SYSTEM_BLOSC2=1
-  script:
-    - set CC=clang-cl                      # [win]
-    - set CXX=clang-cl                     # [win]
-    - set CMAKE_GENERATOR_TOOLSET=ClangCL  # [win]
-    # cross-python does not wire up FindPython's NumPy/Development.Module components
-    # for free-threaded (cp3xxt) cross builds, so point CMake at them explicitly.
-    # NumPy headers are architecture independent, so the build-env copy is fine.
-    - export Python_INCLUDE_DIR="$(python -c 'import sysconfig; print(sysconfig.get_path("include"))')"   # [build_platform != target_platform]
-    - export Python_NumPy_INCLUDE_DIR="$(python -c 'import numpy; print(numpy.get_include())')"           # [build_platform != target_platform]
-    - export CMAKE_ARGS="${CMAKE_ARGS} -DPython_EXECUTABLE=${PYTHON} -DPython_INCLUDE_DIR=${Python_INCLUDE_DIR} -DPython_NumPy_INCLUDE_DIR=${Python_NumPy_INCLUDE_DIR}"     # [build_platform != target_platform]
-    - export CMAKE_ARGS="${CMAKE_ARGS} -DPython3_EXECUTABLE=${PYTHON} -DPython3_INCLUDE_DIR=${Python_INCLUDE_DIR} -DPython3_NumPy_INCLUDE_DIR=${Python_NumPy_INCLUDE_DIR}"  # [build_platform != target_platform]
-    - {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
