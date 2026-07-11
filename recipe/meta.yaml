@@ -53,6 +53,7 @@ requirements:
     - textual
     - textual-plotext
     - rich
+    - httpx
 
 test:
   imports:
