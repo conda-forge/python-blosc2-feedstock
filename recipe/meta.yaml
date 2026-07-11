@@ -19,7 +19,6 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib('c') }}
     - {{ compiler('cxx') }}
-    - clangxx                   # [win]
     - cmake
     - python                              # [build_platform != target_platform]
     - cross-python_{{ target_platform }}  # [build_platform != target_platform]
