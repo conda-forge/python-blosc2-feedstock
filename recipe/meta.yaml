@@ -13,6 +13,11 @@ build:
   skip: true  # [py<311]
   script_env:
     - USE_SYSTEM_BLOSC2=1
+  script:
+    - set CC=clang-cl                      # [win]
+    - set CXX=clang-cl                     # [win]
+    - set CMAKE_GENERATOR_TOOLSET=ClangCL  # [win]
+    - {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
