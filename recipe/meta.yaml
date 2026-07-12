@@ -39,9 +39,7 @@ requirements:
     - python
     - python-build
     - pip
-    # scikit-build-core version 1.0.2 has trouble finding 
-    # 3.14t with cross compiled environments
-    - scikit-build-core <1
+    - scikit-build-core
   run:
     - python
     - msgpack-python
