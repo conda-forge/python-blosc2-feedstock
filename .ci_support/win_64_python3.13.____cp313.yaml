@@ -1,7 +1,7 @@
 c_blosc2:
-- '3.1'
+- '3.2'
 c_compiler:
-- vs2022
+- clang-cl
 c_stdlib:
 - vs
 channel_sources:
@@ -9,7 +9,7 @@ channel_sources:
 channel_targets:
 - conda-forge main
 cxx_compiler:
-- vs2022
+- clang-cl
 numpy:
 - '2'
 pin_run_as_build:
