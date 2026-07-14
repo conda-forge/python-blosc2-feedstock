@@ -47,7 +47,6 @@ requirements:
     - numexpr >=2.14.1
     - numpy >=1.26.0
     - pydantic
-    - requests
     - threadpoolctl
     - textual
     - textual-plotext
