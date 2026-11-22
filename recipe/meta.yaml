@@ -21,9 +21,11 @@ build:
 
 requirements:
   build:
-    - {{ compiler('c') }}
+    - {{ compiler('c') }}        # [unix]
+    - {{ compiler('cxx') }}      # [unix]
+    - {{ compiler('clang') }}    # [win]
+    - {{ compiler('clangxx') }}  # [win]
     - {{ stdlib('c') }}
-    - {{ compiler('cxx') }}
     - cmake 4.3
     - python                              # [build_platform != target_platform]
     - cross-python_{{ target_platform }}  # [build_platform != target_platform]
