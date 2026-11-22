@@ -1,4 +1,4 @@
-{% set version = "4.15.0" %}
+{% set version = "4.16.0" %}
 
 package:
   name: python-blosc2
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/Blosc/python-blosc2/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: df6647a8d6beee533b70fd86197c8d0d953607b3700d6421f1b90694a5cb1839
+  sha256: 28267b9e67b7cfc69a0560bcce0bc2a284d417711af0f2d69120654fc1c00783
 
 build:
   number: 0
@@ -21,9 +21,11 @@ build:
 
 requirements:
   build:
-    - {{ compiler('c') }}
+    - {{ compiler('c') }}        # [unix]
+    - {{ compiler('cxx') }}      # [unix]
+    - {{ compiler('clang') }}    # [win]
+    - {{ compiler('clangxx') }}  # [win]
     - {{ stdlib('c') }}
-    - {{ compiler('cxx') }}
     - cmake 4.3
     - python                              # [build_platform != target_platform]
     - cross-python_{{ target_platform }}  # [build_platform != target_platform]
