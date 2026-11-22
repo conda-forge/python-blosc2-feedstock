@@ -1,18 +1,18 @@
 c_blosc2:
 - '3.7'
-c_compiler:
-- clang-cl
-c_compiler_version:
-- '21'
 c_stdlib:
 - vs
 channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
-cxx_compiler:
+clang_compiler:
 - clang-cl
-cxx_compiler_version:
+clang_compiler_version:
+- '21'
+clangxx_compiler:
+- clang-cl
+clangxx_compiler_version:
 - '21'
 numpy:
 - '2'
