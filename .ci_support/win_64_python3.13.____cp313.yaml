@@ -1,5 +1,5 @@
 c_blosc2:
-- '3.7'
+- '3.8'
 c_stdlib:
 - vs
 channel_sources:
@@ -9,11 +9,11 @@ channel_targets:
 clang_compiler:
 - clang-cl
 clang_compiler_version:
-- '21'
+- '22'
 clangxx_compiler:
 - clang-cl
 clangxx_compiler_version:
-- '21'
+- '22'
 numpy:
 - '2'
 pin_run_as_build:
