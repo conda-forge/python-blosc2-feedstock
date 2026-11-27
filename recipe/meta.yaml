@@ -17,6 +17,7 @@ build:
     - set CC=clang-cl                      # [win]
     - set CXX=clang-cl                     # [win]
     - set CMAKE_GENERATOR_TOOLSET=ClangCL  # [win]
+    - export CMAKE_ARGS="${CMAKE_ARGS} -DCMAKE_POLICY_DEFAULT_CMP0190=NEW -DCMAKE_CROSSCOMPILING_EMULATOR=env"  # [build_platform != target_platform]
     - {{ PYTHON }} -m pip install . -vv
 
 requirements:
